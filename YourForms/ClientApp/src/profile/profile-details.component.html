@@ -1,0 +1,61 @@
+<div>
+  <div style="margin-top:25px">
+    <div>
+      <a (click)="goBack()" class="btn btn-warning">Wstecz</a><h3>{{pageTitle}}</h3>
+    </div>
+    <div style="margin-top:25px; margin-bottom: 50px">
+      <form #profileForm="ngForm" (ngSubmit)="onSubmit(profile)">
+        <div class="form_group field">
+          <label for="name">Imię</label>
+          <input [disabled]="!isInEditMode" id="name" name="name" type="text" [(ngModel)]="profile.name" class="form-control" placeholder="Imię" #type="ngModel">
+        </div>
+        <div class="form_group field">
+          <label for="surname">Nazwisko</label>
+          <input [disabled]="!isInEditMode" id="surname" name="surname" type="text" [(ngModel)]="profile.surname" class="form-control" placeholder="Nazwisko">
+        </div>
+        <div class="form_group field">
+          <label for="birthdate">Data urodzenia</label>
+          <input [disabled]="!isInEditMode" type="date" data-date-format="DD MMMM YYYY" id="birthdate"  [(ngModel)]="profile.birthDate" name="birthdate" value="2018-07-22" min="1990-01-01" placeholder="Data urodzenia" class="form-control">
+        </div>
+        <div class="form_group field">
+          <label for="gender">Płeć</label>
+          <select [disabled]="!isInEditMode" required class="form-control" id="gender" [(ngModel)]="profile.gender" name="gender">
+            <option></option>
+            <option value="false">Kobieta</option>
+            <option value="true">Mężczyzna</option>
+          </select>
+        </div>
+        <div class="form_group field">
+          <label for="nationality">Narodowość</label>
+          <select [disabled]="!isInEditMode" required class="form-control" id="nationality" [(ngModel)]="profile.nationality" name="nationality" #nationality="ngModel">
+            <option></option>
+            <option value="0">Polska</option>
+            <option value="1">Francja</option>
+            <option value="2">Wielka Brytania</option>
+            <option value="3">Węgry</option>
+            <option value="4">Rosja</option>
+          </select>
+        </div>
+        <div class="form_group field">
+          <label for="phone">Nr telefonu</label>
+          <input [disabled]="!isInEditMode" id="phone" name="phone" type="text" [(ngModel)]="profile.phone" class="form-control" placeholder="Nr telefonu">
+        </div>
+        <div class="form_group field">
+          <label for="email">Adres email</label>
+          <input [disabled]="!isInEditMode" id="email" name="email" type="text" [(ngModel)]="profile.emailAdress" class="form-control" placeholder="Adres email">
+        </div>
+        <div class="form-group">
+          <label for="isactive">Aktywny</label>
+          <select [disabled]="!isInEditMode" id="isactive" name="isactive" [(ngModel)]="profile.isActive" class="form-control">
+            <option></option>
+            <option value="true">Tak</option>
+            <option value="false">Nie</option>
+          </select>
+        </div>
+        <div>
+          <button [disabled]="!isInEditMode" class="btn btn-primary" (click)="onSubmit(profile)">Zapisz</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

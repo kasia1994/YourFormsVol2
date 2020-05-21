@@ -1,0 +1,33 @@
+<div>
+  <div>
+    <h3>{{pageTitle}}</h3>
+  </div>
+  <div style="margin-top:15px; margin-right: 25px" class="content-table">
+    <table class="table client table-responsive">
+      <thead>
+        <tr>
+          <th class="col-md-1 col-sm-1 col-xs-1">Lp.</th>
+          <th class="col-md-3 col-sm-3 col-xs-3">Imię</th>
+          <th class="col-md-2 col-sm-2 col-xs-2">Nazwisko</th>
+          <th class="col-md-2 col-sm-2 col-xs-2">Data utworzenia</th>
+          <th class="col-md-2 col-sm-2 col-xs-2">Data ostatniej aktualizacji</th>
+          <th class="col-md-1 col-sm-1 col-xs-1"></th>
+          <th class="col-md-1 col-sm-1 col-xs-1"></th>
+          <th class="col-md-1 col-sm-1 col-xs-1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let profile of profiles let i = index" [attr.data-index]="i">
+          <td class="col-md-1 col-sm-1 col-xs-1">{{i+1}}</td>
+          <td class="col-md-2 col-sm-2 col-xs-2">{{profile.name}}</td>
+          <td class="col-md-3 col-sm-2 col-xs-3">{{profile.surname}} </td>
+          <td class="col-md-2 col-sm-2 col-xs-2">{{profile.creationdate}}</td>
+          <td class="col-md-3 col-sm-2 col-xs-3">{{profile.lastupdate}} </td>
+          <td class="col-md-1 col-sm-1 col-xs-1"><button class="btn btn-primary" (click)="getProfile(profile.id)">Szczegóły</button></td>
+          <td class="col-md-1 col-sm-1 col-xs-1"><button class="btn btn-success" (click)="updateProfile(profile.id)">Zaktualizuj</button></td>
+          <td class="col-md-1 col-sm-1 col-xs-1"><button class="btn btn-danger" (click)="deleteProfile(profile.id)">Usuń</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
